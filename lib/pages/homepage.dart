@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:news__app/tabs/cardlist.dart';
+import 'package:news__app/tabs/search.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,9 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final tab = [
     CardList(),
-    Center(
-      child: Text('dffrg'),
-    ),
+    Search(),
     Center(
       child: Text('asdfghj'),
     ),
@@ -43,20 +42,19 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                padding: const EdgeInsets.only(left: 30, right: 30, bottom: 10),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                   child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
-                          Radius.circular(20),
+                          Radius.circular(10),
                         ),
-                        color: Colors.black.withOpacity(0.66),
+                        color: Colors.white.withOpacity(0.5),
                       ),
                       child: BottomNavigationBar(
-                        //selectedFontSize: 0.0,
                         currentIndex: _currentIndex,
                         backgroundColor: Colors.transparent,
                         elevation: 0.0,
@@ -64,39 +62,47 @@ class _HomePageState extends State<HomePage> {
                         items: [
                           BottomNavigationBarItem(
                             icon: Icon(
-                              Icons.ac_unit,
-                              color: Colors.white,
+                              Icons.receipt,
+                              color: Colors.black,
+                              size: 30,
                             ),
                             title: Text(
-                              'data',
-                              style: TextStyle(color: Colors.white),
+                              'news',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 0),
                             ),
                           ),
                           BottomNavigationBarItem(
                             icon: Icon(
-                              Icons.ac_unit,
-                              color: Colors.white,
+                              Icons.search,
+                              color: Colors.black,
+                              size: 35,
                             ),
                             title: Text(
-                              'data',
-                              style: TextStyle(color: Colors.white),
+                              'search',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 0),
                             ),
                           ),
                           BottomNavigationBarItem(
                             icon: Icon(
-                              Icons.ac_unit,
-                              color: Colors.white,
+                              Icons.settings,
+                              color: Colors.black,
+                              size: 35,
                             ),
                             title: Text(
-                              'data',
-                              style: TextStyle(color: Colors.white),
+                              'setting',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 0),
                             ),
                           ),
                         ],
                         onTap: (index) {
-                          setState(() {
-                            _currentIndex = index;
-                          });
+                          setState(
+                            () {
+                              _currentIndex = index;
+                            },
+                          );
                         },
                       ),
                     ),

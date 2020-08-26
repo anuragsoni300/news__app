@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:news__app/backend/fetching/fetchingfromarticalmodel.dart';
 import 'package:news__app/backend/model/articalmodel.dart';
 import 'package:news__app/browser/browserpage.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CardList extends StatefulWidget {
   @override
@@ -53,6 +54,7 @@ class _CardListState extends State<CardList> {
                 overflow: Overflow.clip,
                 children: <Widget>[
                   Container(
+                    width: double.infinity,
                     height: 300,
                     child: Card(
                       margin: EdgeInsets.all(0),
@@ -62,8 +64,16 @@ class _CardListState extends State<CardList> {
                       ),
                       child: CachedNetworkImage(
                         imageUrl: articals[index].urlToImage,
-                        placeholder: (context, url) =>
-                            Center(child: CircularProgressIndicator()),
+                        placeholder: (context, url) => Center(
+                          child: Shimmer.fromColors(
+                            child: Container(
+                              height: 300,
+                              color: Colors.amber,
+                            ),
+                            baseColor: Color.fromRGBO(121, 89, 74, 0.3),
+                            highlightColor: Color.fromRGBO(251, 236, 197, 0.6),
+                          ),
+                        ),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -83,7 +93,7 @@ class _CardListState extends State<CardList> {
                             color: Color.fromRGBO(8, 152, 200, 0.2),
                           ),
                           //height: 106,
-                          width: MediaQuery.of(context).size.width / 2.6,
+                          width: MediaQuery.of(context).size.width / 3.2,
                           child: Center(
                             child: Padding(
                               padding: const EdgeInsets.only(
@@ -118,16 +128,20 @@ class _CardListState extends State<CardList> {
                             color: Color.fromRGBO(8, 152, 200, 0.2),
                           ),
                           //height: 200,
-                          width: MediaQuery.of(context).size.width / 2.6,
+                          width: MediaQuery.of(context).size.width / 3.2,
                           child: Stack(
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: SingleChildScrollView(
                                   physics: BouncingScrollPhysics(),
-                                  child: Text(
-                                    articals[index].description,
-                                    style: TextStyle(color: Colors.white),
+                                  child: Container(
+                                    height: 120,
+                                    child: Text(
+                                      articals[index].description,
+                                      style: TextStyle(color: Colors.white),
+                                      overflow: TextOverflow.fade,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -146,12 +160,11 @@ class _CardListState extends State<CardList> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 50.0,
-                                            right: 50.0,
-                                            top: 10.0,
-                                            bottom: 10.0),
-                                        child: Icon(Icons.arrow_forward_ios),
+                                        padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Icon(Icons.arrow_forward_ios),
+                                        ),
                                       ),
                                     ),
                                     onTap: () {
