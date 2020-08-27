@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:news__app/backend/fetching/fetchingfromarticalmodel.dart';
 import 'package:news__app/backend/model/articalmodel.dart';
 import 'package:news__app/backend/model/fetchingnewstypes.dart';
 import 'package:news__app/backend/model/newstypesmodel.dart';
@@ -15,33 +14,11 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
   List<ArticalModel> articals = [];
-  bool _loading = true;
   final key = GlobalKey<FormState>();
   Color _mycolor = Colors.amber;
   bool _active = true;
   TextEditingController _controller = TextEditingController();
   List<NewsTypes> newstypes = getnewstypes();
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _controller.addListener(
-  //     () {},
-  //   );
-  // }
-
-  // Future getNews() async {
-  //   News newsClass = News();
-  //   String url = "http://newsapi.org/v2/top-headlines?q=" +
-  //       _controller.text +
-  //       "&language=en&apiKey=3263c704911c4f0fa29113f9f098c180";
-  //   newsClass.urls = url;
-  //   await newsClass.getNews(newsClass.urls);
-  //   articals = newsClass.news;
-  //   setState(() {
-  //     _loading = !_loading;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {

@@ -69,6 +69,7 @@ class _NewCardListState extends State<NewCardList> {
                     padding: const EdgeInsets.only(top: 20),
                     child: ListView.builder(
                       physics: BouncingScrollPhysics(),
+                      itemCount: articals.length,
                       itemBuilder: (context, index) => Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: GestureDetector(
@@ -156,7 +157,6 @@ class _NewCardListState extends State<NewCardList> {
                           ),
                         ),
                       ),
-                      itemCount: articals.length,
                     ),
                   ),
                 ),

@@ -28,7 +28,8 @@ class _CardListState extends State<CardList> {
 
   getNews() async {
     News newsClass = News();
-    String url = "http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=3263c704911c4f0fa29113f9f098c180";
+    String url =
+        "http://newsapi.org/v2/top-headlines?country=in&apiKey=3263c704911c4f0fa29113f9f098c180";
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
@@ -162,7 +163,8 @@ class _CardListState extends State<CardList> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                        padding: const EdgeInsets.only(
+                                            left: 15.0, right: 15.0),
                                         child: Padding(
                                           padding: const EdgeInsets.all(10.0),
                                           child: Icon(Icons.arrow_forward_ios),
