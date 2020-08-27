@@ -29,9 +29,9 @@ class _NewCardListState extends State<NewCardList> {
 
   getNews() async {
     News newsClass = News();
-    String url = "http://newsapi.org/v2/top-headlines?q=" +
+    String url = "http://newsapi.org/v2/everything?q=" +
         text +
-        "&language=en&apiKey=3263c704911c4f0fa29113f9f098c180";
+        "&language=en&pages=100&apiKey=3263c704911c4f0fa29113f9f098c180";
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
@@ -83,77 +83,85 @@ class _NewCardListState extends State<NewCardList> {
                               ),
                             );
                           },
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Container(
-                                  width: 240.0,
-                                  height: 170.0,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: CachedNetworkImage(
-                                    imageUrl: articals[index].urlToImage,
-                                    fit: BoxFit.cover,
-                                    placeholder: (context, url) => Center(
-                                      child: Shimmer.fromColors(
-                                        child: Container(
-                                          width: 240.0,
-                                          height: 170.0,
-                                          color: Colors.amber,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Container(
+                                    width: 240.0,
+                                    height: 170.0,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: CachedNetworkImage(
+                                      imageUrl: articals[index].urlToImage,
+                                      fit: BoxFit.cover,
+                                      placeholder: (context, url) => Center(
+                                        child: Shimmer.fromColors(
+                                          child: Container(
+                                            width: 240.0,
+                                            height: 170.0,
+                                            color: Colors.amber,
+                                          ),
+                                          baseColor:
+                                              Color.fromRGBO(121, 89, 74, 0.3),
+                                          highlightColor: Color.fromRGBO(
+                                              251, 236, 197, 0.6),
                                         ),
-                                        baseColor:
-                                            Color.fromRGBO(121, 89, 74, 0.3),
-                                        highlightColor:
-                                            Color.fromRGBO(251, 236, 197, 0.6),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.3),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      width: double.infinity,
-                                      height: 70.0,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(articals[index].title),
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.0),
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.3),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      width: double.infinity,
-                                      height: 92.0,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          articals[index].description,
-                                          overflow: TextOverflow.clip,
+                                const Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 8.0),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color:
+                                                Colors.white.withOpacity(0.3),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        width: double.infinity,
+                                        height: 70.0,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(articals[index].title),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                                      const Padding(
+                                        padding:
+                                            EdgeInsets.symmetric(vertical: 2.0),
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color:
+                                                Colors.white.withOpacity(0.3),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        width: double.infinity,
+                                        height: 92.0,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            articals[index].description,
+                                            overflow: TextOverflow.clip,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

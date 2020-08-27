@@ -77,41 +77,50 @@ class _SearchState extends State<Search> {
                         });
                       },
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Card(
-                          elevation: 5.0,
-                          clipBehavior: Clip.antiAlias,
-                          child: Stack(
-                            children: <Widget>[
-                              Container(
+                        padding: const EdgeInsets.all(18.0),
+                        child: Stack(
+                          children: <Widget>[
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Container(
                                 decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
                                   image: DecorationImage(
                                     image: newstypes[index].image,
                                     fit: BoxFit.fill,
                                   ),
                                 ),
                               ),
-                              Container(
-                                color: Colors.black.withOpacity(0.3),
-                                child: Center(
-                                  child: BackdropFilter(
-                                    filter: ImageFilter.blur(
-                                      sigmaX: 1,
-                                      sigmaY: 1,
-                                    ),
-                                    child: Text(
-                                      newstypes[index].newstype,
-                                      style: TextStyle(
-                                        fontSize: 25,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                            ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.black.withOpacity(0.3),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Center(
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                        sigmaX: 1,
+                                        sigmaY: 1,
+                                      ),
+                                      child: Text(
+                                        newstypes[index].newstype,
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     );
@@ -174,6 +183,12 @@ class _SearchState extends State<Search> {
                             onTap: () {
                               setState(() {
                                 _active = !_active;
+                                FocusScopeNode currentFocus =
+                                    FocusScope.of(context);
+
+                                if (_active) {
+                                  currentFocus.unfocus();
+                                }
                               });
                             },
                           ),
