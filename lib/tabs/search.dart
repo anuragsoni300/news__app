@@ -22,26 +22,26 @@ class _SearchState extends State<Search> {
   TextEditingController _controller = TextEditingController();
   List<NewsTypes> newstypes = getnewstypes();
 
-  @override
-  void initState() {
-    super.initState();
-    _controller.addListener(
-      () {},
-    );
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _controller.addListener(
+  //     () {},
+  //   );
+  // }
 
-  Future getNews() async {
-    News newsClass = News();
-    String url = "http://newsapi.org/v2/top-headlines?q=" +
-        _controller.text +
-        "&language=en&apiKey=3263c704911c4f0fa29113f9f098c180";
-    newsClass.urls = url;
-    await newsClass.getNews(newsClass.urls);
-    articals = newsClass.news;
-    setState(() {
-      _loading = !_loading;
-    });
-  }
+  // Future getNews() async {
+  //   News newsClass = News();
+  //   String url = "http://newsapi.org/v2/top-headlines?q=" +
+  //       _controller.text +
+  //       "&language=en&apiKey=3263c704911c4f0fa29113f9f098c180";
+  //   newsClass.urls = url;
+  //   await newsClass.getNews(newsClass.urls);
+  //   articals = newsClass.news;
+  //   setState(() {
+  //     _loading = !_loading;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -194,13 +194,12 @@ class _SearchState extends State<Search> {
                         onPressed: () {
                           setState(() {
                             print(_controller.text);
-                            getNews();
                           });
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (_) => NewCardList(
-                                articals: articals,
+                                text: _controller.text,
                               ),
                             ),
                           );

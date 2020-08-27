@@ -1,21 +1,44 @@
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news__app/backend/fetching/fetchingfromarticalmodel.dart';
 import 'package:news__app/backend/model/articalmodel.dart';
 import 'package:news__app/browser/browserpage.dart';
 import 'package:shimmer/shimmer.dart';
 
 class NewCardList extends StatefulWidget {
-  final List<ArticalModel> articals;
-  NewCardList({this.articals});
+  final String text;
+  NewCardList({this.text});
   @override
-  _NewCardListState createState() => _NewCardListState(articals: articals);
+  _NewCardListState createState() => _NewCardListState(text: text);
 }
 
 class _NewCardListState extends State<NewCardList> {
-  final List<ArticalModel> articals;
+  final String text;
 
-  _NewCardListState({this.articals});
+  _NewCardListState({this.text});
+
+  List<ArticalModel> articals = [];
+  bool _loading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    getNews();
+  }
+
+  getNews() async {
+    News newsClass = News();
+    String url = "http://newsapi.org/v2/top-headlines?q=" +
+        text +
+        "&language=en&apiKey=3263c704911c4f0fa29113f9f098c180";
+    newsClass.urls = url;
+    await newsClass.getNews(newsClass.urls);
+    articals = newsClass.news;
+    setState(() {
+      _loading = !_loading;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
