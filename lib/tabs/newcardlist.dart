@@ -19,6 +19,7 @@ class _NewCardListState extends State<NewCardList> {
   _NewCardListState({this.text});
 
   List<ArticalModel> articals = [];
+  bool _loading = true;
 
   @override
   void initState() {
@@ -34,6 +35,9 @@ class _NewCardListState extends State<NewCardList> {
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
+    setState(() {
+      _loading = !_loading;
+    });
   }
 
   @override
@@ -80,7 +84,7 @@ class _NewCardListState extends State<NewCardList> {
                             );
                           },
                           child: Padding(
-                            padding: const EdgeInsets.only(bottom: 20),
+                            padding: const EdgeInsets.only(bottom: 30),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -90,8 +94,7 @@ class _NewCardListState extends State<NewCardList> {
                                     width: 240.0,
                                     height: 170.0,
                                     decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
+                                        borderRadius: BorderRadius.circular(10)),
                                     child: CachedNetworkImage(
                                       imageUrl: articals[index].urlToImage,
                                       fit: BoxFit.cover,
@@ -104,26 +107,23 @@ class _NewCardListState extends State<NewCardList> {
                                           ),
                                           baseColor:
                                               Color.fromRGBO(121, 89, 74, 0.3),
-                                          highlightColor: Color.fromRGBO(
-                                              251, 236, 197, 0.6),
+                                          highlightColor:
+                                              Color.fromRGBO(251, 236, 197, 0.6),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 const Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 8.0),
+                                  padding: EdgeInsets.symmetric(horizontal: 8.0),
                                 ),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Container(
                                         decoration: BoxDecoration(
-                                            color:
-                                                Colors.white.withOpacity(0.3),
+                                            color: Colors.white.withOpacity(0.3),
                                             borderRadius:
                                                 BorderRadius.circular(10)),
                                         width: double.infinity,
@@ -139,8 +139,7 @@ class _NewCardListState extends State<NewCardList> {
                                       ),
                                       Container(
                                         decoration: BoxDecoration(
-                                            color:
-                                                Colors.white.withOpacity(0.3),
+                                            color: Colors.white.withOpacity(0.3),
                                             borderRadius:
                                                 BorderRadius.circular(10)),
                                         width: double.infinity,

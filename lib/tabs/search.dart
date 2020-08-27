@@ -99,8 +99,7 @@ class _SearchState extends State<Search> {
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.black.withOpacity(0.3),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
+                                child: ClipRRect(borderRadius: BorderRadius.circular(10),
                                   child: Center(
                                     child: BackdropFilter(
                                       filter: ImageFilter.blur(
