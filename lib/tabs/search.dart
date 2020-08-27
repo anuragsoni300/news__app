@@ -13,7 +13,17 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  List<String> newstype = [
+    "business",
+    "entertainment",
+    "general",
+    "health",
+    "science",
+    "sport",
+    "technology"
+  ];
   List<ArticalModel> articals = [];
+  int currentindex = 0;
   final key = GlobalKey<FormState>();
   Color _mycolor = Colors.amber;
   bool _active = true;
@@ -51,41 +61,57 @@ class _SearchState extends State<Search> {
                 children: List.generate(
                   newstypes.length,
                   (index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Card(
-                        elevation: 5.0,
-                        clipBehavior: Clip.antiAlias,
-                        child: Stack(
-                          children: <Widget>[
-                            Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: newstypes[index].image,
-                                  fit: BoxFit.fill,
-                                ),
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          currentindex = index;
+                          print(newstype[currentindex]);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => NewCardList(
+                                text: newstype[currentindex],
                               ),
                             ),
-                            Container(
-                              color: Colors.black.withOpacity(0.3),
-                              child: Center(
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 1,
-                                    sigmaY: 1,
+                          );
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Card(
+                          elevation: 5.0,
+                          clipBehavior: Clip.antiAlias,
+                          child: Stack(
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: newstypes[index].image,
+                                    fit: BoxFit.fill,
                                   ),
-                                  child: Text(
-                                    newstypes[index].newstype,
-                                    style: TextStyle(
-                                      fontSize: 25,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Container(
+                                color: Colors.black.withOpacity(0.3),
+                                child: Center(
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 1,
+                                      sigmaY: 1,
+                                    ),
+                                    child: Text(
+                                      newstypes[index].newstype,
+                                      style: TextStyle(
+                                        fontSize: 25,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     );
