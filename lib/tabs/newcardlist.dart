@@ -19,7 +19,6 @@ class _NewCardListState extends State<NewCardList> {
   _NewCardListState({this.text});
 
   List<ArticalModel> articals = [];
-  bool _loading = true;
 
   @override
   void initState() {
@@ -35,9 +34,6 @@ class _NewCardListState extends State<NewCardList> {
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
-    setState(() {
-      _loading = !_loading;
-    });
   }
 
   @override

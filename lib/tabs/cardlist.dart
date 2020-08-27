@@ -13,8 +13,6 @@ class CardList extends StatefulWidget {
 
 class _CardListState extends State<CardList> {
   List<ArticalModel> articals = [];
-  bool _loading = true;
-
   @override
   void dispose() {
     super.dispose();
@@ -33,9 +31,6 @@ class _CardListState extends State<CardList> {
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
-    setState(() {
-      _loading = !_loading;
-    });
   }
 
   @override
