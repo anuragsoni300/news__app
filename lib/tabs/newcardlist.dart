@@ -1,41 +1,21 @@
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:news__app/backend/fetching/fetchingfromarticalmodel.dart';
 import 'package:news__app/backend/model/articalmodel.dart';
 import 'package:news__app/browser/browserpage.dart';
 import 'package:shimmer/shimmer.dart';
 
-class CardList extends StatefulWidget {
+class NewCardList extends StatefulWidget {
+  final List<ArticalModel> articals;
+  NewCardList({this.articals});
   @override
-  _CardListState createState() => _CardListState();
+  _NewCardListState createState() => _NewCardListState(articals: articals);
 }
 
-class _CardListState extends State<CardList> {
-  List<ArticalModel> articals = [];
-  bool _loading = true;
+class _NewCardListState extends State<NewCardList> {
+  final List<ArticalModel> articals;
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getNews();
-  }
-
-  getNews() async {
-    News newsClass = News();
-    String url = "http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=3263c704911c4f0fa29113f9f098c180";
-    newsClass.urls = url;
-    await newsClass.getNews(newsClass.urls);
-    articals = newsClass.news;
-    setState(() {
-      _loading = !_loading;
-    });
-  }
+  _NewCardListState({this.articals});
 
   @override
   Widget build(BuildContext context) {
@@ -162,7 +142,8 @@ class _CardListState extends State<CardList> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                        padding: const EdgeInsets.only(
+                                            left: 15.0, right: 15.0),
                                         child: Padding(
                                           padding: const EdgeInsets.all(10.0),
                                           child: Icon(Icons.arrow_forward_ios),

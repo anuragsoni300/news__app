@@ -4,10 +4,11 @@ import 'package:news__app/backend/model/articalmodel.dart';
 
 class News {
   List<ArticalModel> news = [];
+  String urls;
 
-  Future<List<ArticalModel>> getNews() async {
-    String url =
-        "http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3263c704911c4f0fa29113f9f098c180";
+  Future<List<ArticalModel>> getNews(urls) async {
+    String url = urls;
+       // "http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=3263c704911c4f0fa29113f9f098c180";
     var response = await http.get(url);
     var jsondata = jsonDecode(response.body);
 
