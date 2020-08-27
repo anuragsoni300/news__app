@@ -5,7 +5,6 @@ import 'package:news__app/backend/fetching/fetchingfromarticalmodel.dart';
 import 'package:news__app/backend/model/articalmodel.dart';
 import 'package:news__app/backend/model/fetchingnewstypes.dart';
 import 'package:news__app/backend/model/newstypesmodel.dart';
-import 'package:news__app/browser/browserpage.dart';
 
 import 'newcardlist.dart';
 
@@ -29,13 +28,13 @@ class _SearchState extends State<Search> {
     _controller.addListener(
       () {},
     );
-    getNews();
   }
 
-  getNews() async {
+  Future getNews() async {
     News newsClass = News();
-    String url =
-        "http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3263c704911c4f0fa29113f9f098c180";
+    String url = "http://newsapi.org/v2/top-headlines?q=" +
+        _controller.text +
+        "&language=en&apiKey=3263c704911c4f0fa29113f9f098c180";
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
@@ -167,7 +166,6 @@ class _SearchState extends State<Search> {
                             onChanged: (String text) {
                               setState(() {
                                 text = _controller.text;
-                                print(_controller.text);
                               });
                             },
                             onTap: () {
@@ -194,12 +192,17 @@ class _SearchState extends State<Search> {
                           Icons.arrow_forward_ios,
                         ),
                         onPressed: () {
+                          setState(() {
+                            print(_controller.text);
+                            getNews();
+                          });
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => NewCardList(
-                                      articals: articals,
-                                    )),
+                              builder: (_) => NewCardList(
+                                articals: articals,
+                              ),
+                            ),
                           );
                         },
                       ),

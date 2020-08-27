@@ -19,162 +19,129 @@ class _NewCardListState extends State<NewCardList> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: BouncingScrollPhysics(),
-      itemCount: articals.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15, bottom: 40),
-          child: Container(
-            height: 300,
-            child: Card(
-              clipBehavior: Clip.antiAlias,
-              elevation: 0,
-              color: Colors.transparent,
-              child: Stack(
-                alignment: Alignment.topRight,
-                overflow: Overflow.clip,
-                children: <Widget>[
-                  Container(
-                    width: double.infinity,
-                    height: 300,
-                    child: Card(
-                      margin: EdgeInsets.all(0),
-                      clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: CachedNetworkImage(
-                        imageUrl: articals[index].urlToImage,
-                        placeholder: (context, url) => Center(
-                          child: Shimmer.fromColors(
-                            child: Container(
-                              height: 300,
-                              color: Colors.amber,
-                            ),
-                            baseColor: Color.fromRGBO(121, 89, 74, 0.3),
-                            highlightColor: Color.fromRGBO(251, 236, 197, 0.6),
-                          ),
-                        ),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.only(topRight: Radius.circular(15)),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                        child: Container(
-                          height: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(15)),
-                            color: Color.fromRGBO(8, 152, 200, 0.2),
-                          ),
-                          //height: 106,
-                          width: MediaQuery.of(context).size.width / 3.2,
-                          child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 5, bottom: 3, right: 3),
-                              child: SingleChildScrollView(
-                                physics: BouncingScrollPhysics(),
-                                child: Text(
-                                  articals[index].title,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.only(bottomRight: Radius.circular(15)),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                        child: Container(
-                          height: 192,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(15)),
-                            color: Color.fromRGBO(8, 152, 200, 0.2),
-                          ),
-                          //height: 200,
-                          width: MediaQuery.of(context).size.width / 3.2,
-                          child: Stack(
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SingleChildScrollView(
-                                  physics: BouncingScrollPhysics(),
-                                  child: Container(
-                                    height: 120,
-                                    child: Text(
-                                      articals[index].description,
-                                      style: TextStyle(color: Colors.white),
-                                      overflow: TextOverflow.fade,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    bottom: 8.0, left: 25.0, right: 25.0),
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: InkWell(
-                                    child: Card(
-                                      elevation: 10.0,
-                                      color: Colors.tealAccent.withOpacity(1.0),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(20.0),
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 15.0, right: 15.0),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Icon(Icons.arrow_forward_ios),
-                                        ),
-                                      ),
-                                    ),
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (_) => BrowserPage(
-                                            url: articals[index].url,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                stops: [0.1, 1.0],
+                colors: [
+                  Color.fromRGBO(190, 120, 90, 1),
+                  Color.fromRGBO(60, 209, 200, 1),
                 ],
               ),
             ),
           ),
-        );
-      },
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 14.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      itemBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => BrowserPage(
+                                  url: articals[index].url,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  width: 240.0,
+                                  height: 170.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: CachedNetworkImage(
+                                    imageUrl: articals[index].urlToImage,
+                                    fit: BoxFit.cover,
+                                    placeholder: (context, url) => Center(
+                                      child: Shimmer.fromColors(
+                                        child: Container(
+                                          width: 240.0,
+                                          height: 170.0,
+                                          color: Colors.amber,
+                                        ),
+                                        baseColor:
+                                            Color.fromRGBO(121, 89, 74, 0.3),
+                                        highlightColor:
+                                            Color.fromRGBO(251, 236, 197, 0.6),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.3),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      width: double.infinity,
+                                      height: 70.0,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(articals[index].title),
+                                      ),
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 2.0),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.3),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      width: double.infinity,
+                                      height: 92.0,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          articals[index].description,
+                                          overflow: TextOverflow.clip,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      itemCount: articals.length,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
