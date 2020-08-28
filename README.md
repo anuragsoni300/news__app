@@ -2,7 +2,7 @@
 ________________________________
 
 ### Screenshots
-![Screenshot 1]<img align="left" src="https://github.com/sonianurag300/news__app/tree/master/Screenshots/1.png" />
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 
 
 ## I'm a Student!
