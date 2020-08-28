@@ -1,6 +1,10 @@
 ### Hi there, I'm Anurag Soni 👋
 ________________________________
 
+### Screenshots
+<image  src = "https://github.com/sonianurag300/news__app/blob/master/assets/newstypesimages/general.jpg" />
+
+
 ## I'm a Student!
 
 - 🔭 I’m currently studying in Indian Institute of International Technology Bhopal (india).
