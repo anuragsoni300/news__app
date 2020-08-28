@@ -2,7 +2,7 @@
 ________________________________
 
 ### Screenshots
-<img src = "https://github.com/sonianurag300/news__app/blob/master/assets/newstypesimages/business.jpg">
+<img src = "https://github.com/sonianurag300/news__app/tree/master/Screenshots/1.jpg">
 
 
 ## I'm a Student!
