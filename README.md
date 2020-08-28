@@ -2,7 +2,7 @@
 ________________________________
 
 ### Screenshots
-<img alt = "Screenshot-1" width = 360px; height = 720px; src = "Screenshots/1.jpg">
+<img width = 360px; height = 720px; src = "Screenshots/1.jpg">
 
 ## I'm a Student!
 
