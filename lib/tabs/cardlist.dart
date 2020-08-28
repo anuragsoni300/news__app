@@ -29,7 +29,7 @@ class _CardListState extends State<CardList> {
   getNews() async {
     News newsClass = News();
     String url =
-        "http://newsapi.org/v2/top-headlines?country=in&apiKey=3263c704911c4f0fa29113f9f098c180";
+        "http://newsapi.org/v2/top-headlines?country=in&apiKey="+YOUR_API_KEY;
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
