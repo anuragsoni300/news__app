@@ -2,7 +2,7 @@
 ________________________________
 
 ### Screenshots
-<img src = "https://image.shutterstock.com/image-photo/large-beautiful-drops-transparent-rain-600w-668593321.jpg">
+<img src = "https://github.com/sonianurag300/news__app/blob/master/assets/newstypesimages/business.jpg">
 
 
 ## I'm a Student!
