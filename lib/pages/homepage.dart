@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:news__app/browser/browserpage.dart';
 import 'package:news__app/tabs/cardlist.dart';
 import 'package:news__app/tabs/search.dart';
 
@@ -13,9 +14,7 @@ class _HomePageState extends State<HomePage> {
   final tab = [
     CardList(),
     Search(),
-    Center(
-      child: Text('asdfghj'),
-    ),
+    BrowserPage(),
   ];
 
   var _currentIndex = 0;
@@ -86,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           BottomNavigationBarItem(
                             icon: Icon(
-                              Icons.settings,
+                              Icons.open_in_browser,
                               color: Colors.black,
                               size: 35,
                             ),

@@ -33,9 +33,11 @@ class _CardListState extends State<CardList> {
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
-    setState(() {
-      _loading = !_loading;
-    });
+    if (this.mounted) {
+      setState(() {
+        _loading = !_loading;
+      });
+    }
   }
 
   @override

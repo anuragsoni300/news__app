@@ -25,7 +25,6 @@ class _SearchState extends State<Search> {
   List<ArticalModel> articals = [];
   int currentindex = 0;
   final key = GlobalKey<FormState>();
-  Color _mycolor = Colors.amber;
   bool _active = true;
   TextEditingController _controller = TextEditingController();
   List<NewsTypes> newstypes = getnewstypes();
@@ -99,7 +98,8 @@ class _SearchState extends State<Search> {
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.black.withOpacity(0.3),
                                 ),
-                                child: ClipRRect(borderRadius: BorderRadius.circular(10),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
                                   child: Center(
                                     child: BackdropFilter(
                                       filter: ImageFilter.blur(
@@ -149,7 +149,7 @@ class _SearchState extends State<Search> {
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),
                         ),
-                        color: _mycolor.withOpacity(0.5),
+                        color: Colors.white.withOpacity(0.5),
                       ),
                       child: Padding(
                         padding:

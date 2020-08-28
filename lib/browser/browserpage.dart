@@ -9,15 +9,25 @@ class BrowserPage extends StatefulWidget {
 }
 
 class _BrowserPageState extends State<BrowserPage> {
-  final String url;
+  String url;
+
+  @override
+  void initState() {
+    super.initState();
+    if (url == null) {
+      url = "https://www.google.com/";
+    }
+  }
 
   _BrowserPageState({this.url});
 
   @override
   Widget build(BuildContext context) {
-    return WebBrowser(
-      initialUrl: url,
-      javascriptEnabled: true,
+    return SafeArea(
+      child: WebBrowser(
+        initialUrl: url,
+        javascriptEnabled: true,
+      ),
     );
   }
 }
