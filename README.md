@@ -2,7 +2,7 @@
 ________________________________
 
 ### Screenshots
-<image width = 200px; height = 600px; src = "https://github.com/sonianurag300/news__app/tree/master/assets/newstypesimages/health.jpg">
+<image src = "https://github.com/sonianurag300/news__app/tree/master/assets/newstypesimages/health.jpg/">
 
 
 ## I'm a Student!
