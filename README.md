@@ -2,8 +2,21 @@
 ________________________________
 
 ### Screenshots
-<img aligh = "left" width = 360px; height = 720px; src = "Screenshots/1.jpg" />
-<img aligh = "left" width = 360px; height = 720px; src = "Screenshots/2.jpg" />
+
+<table>
+  <tr>
+    <td>First Screen Page</td>
+     <td>Holiday Mention</td>
+     <td>Present day in purple and selected day in pink</td>
+  </tr>
+  <tr>
+    <td><img aligh = "left" width = 360px; height = 720px; src = "Screenshots/1.jpg" /></td>
+    <td><img aligh = "left" width = 360px; height = 720px; src = "Screenshots/2.jpg" /></td>
+    <td><img aligh = "left" width = 360px; height = 720px; src = "Screenshots/3.jpg" /></td>
+    <td><img aligh = "left" width = 360px; height = 720px; src = "Screenshots/4.jpg" /></td>
+    <td><img aligh = "left" width = 360px; height = 720px; src = "Screenshots/5.jpg" /></td>
+  </tr>
+ </table>
 
 ## I'm a Student!
 
