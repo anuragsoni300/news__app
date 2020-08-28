@@ -2,7 +2,7 @@
 News App in Flutter
 ===================
 
-## Precision colors for machines and people
+## Simple News App which uses a api to fetch news
 
 [![solarized dualmode](https://github.com/altercation/solarized/raw/master/img/solarized-yinyang.png)](#features)
 
