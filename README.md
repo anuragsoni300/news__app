@@ -2,8 +2,8 @@
 ________________________________
 
 ### Screenshots
-[<img aligh = "left" width = 360px; height = 720px; src = "Screenshots/1.jpg" />]
-[<img aligh = "left" width = 360px; height = 720px; src = "Screenshots/2.jpg" />]
+<img aligh = "left" width = 360px; height = 720px; src = "Screenshots/1.jpg" />
+<img aligh = "left" width = 360px; height = 720px; src = "Screenshots/2.jpg" />
 
 ## I'm a Student!
 
