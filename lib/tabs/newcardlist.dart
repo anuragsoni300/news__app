@@ -20,7 +20,7 @@ class _NewCardListState extends State<NewCardList> {
 
   List<ArticalModel> articals = [];
   bool _loading = true;
-
+  String YOUR_API_KEY = "ENTER YOUR API KEY HERE";
   @override
   void initState() {
     super.initState();
@@ -31,7 +31,7 @@ class _NewCardListState extends State<NewCardList> {
     News newsClass = News();
     String url = "http://newsapi.org/v2/everything?q=" +
         text +
-        "&language=en&pages=100&apiKey=3263c704911c4f0fa29113f9f098c180";
+        "&language=en&pages=100&apiKey="+YOUR_API_KEY;
     newsClass.urls = url;
     await newsClass.getNews(newsClass.urls);
     articals = newsClass.news;
