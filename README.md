@@ -4,7 +4,7 @@ News App in Flutter
 
 ## Simple News App which uses a api to fetch news
 
-[![solarized dualmode](https://github.com/sonianurag300/news__app/blob/master/assets/newstypesimages/general.jpg)](#features)
+[![solarized dualmode]()](#features)
 
 Solarized is a sixteen color palette (eight monotones, eight accent colors)
 designed for use with terminal and gui applications. It has several [unique
