@@ -2,7 +2,7 @@
 ________________________________
 
 ### Screenshots
-<img src = "/assets/newstypesimages/20.jpg">
+<img src = "Screenshots/1.jpg">
 
 
 ## I'm a Student!
