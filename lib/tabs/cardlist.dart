@@ -13,6 +13,7 @@ class CardList extends StatefulWidget {
 
 class _CardListState extends State<CardList> {
   List<ArticalModel> articals = [];
+  String YOUR_API_KEY = "ENTER YOUR API KEY HERE";
   bool _loading = true;
 
   @override
