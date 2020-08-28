@@ -2,7 +2,7 @@
 ________________________________
 
 ### Screenshots
-<image  src = "https://github.com/sonianurag300/news__app/blob/master/assets/newstypesimages/general.jpg" />
+<img src = "https://static.toiimg.com/thumb/72975551.cms?width=680&height=512&imgsize=881753">
 
 
 ## I'm a Student!
