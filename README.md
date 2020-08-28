@@ -7,7 +7,8 @@ ________________________________
 <img align = "left" width = 360px; height = 720px; src = "Screenshots/3.jpg">
 <img align = "left" width = 360px; height = 720px; src = "Screenshots/4.jpg">
 <img align = "left" width = 360px; height = 720px; src = "Screenshots/5.jpg">
-
+<br />
+<br />
 
 ## I'm a Student!
 
