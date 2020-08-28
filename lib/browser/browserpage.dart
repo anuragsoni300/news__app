@@ -23,10 +23,13 @@ class _BrowserPageState extends State<BrowserPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: WebBrowser(
-        initialUrl: url,
-        javascriptEnabled: true,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: WebBrowser(
+          initialUrl: url,
+          javascriptEnabled: true,
+        ),
       ),
     );
   }
