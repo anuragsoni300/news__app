@@ -2,7 +2,7 @@
 ________________________________
 
 ### Screenshots
-(https://github.com/sonianurag300/news__app/tree/master/assets/newstypesimages/health.jpg)
+(https://github.com/sonianurag300/news__app/tree/master/assets/newstypesimages/health.jpg/)
 
 
 ## I'm a Student!
