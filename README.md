@@ -2,13 +2,11 @@
 ________________________________
 
 ### Screenshots
-<img align = "left" width = 360px; height = 720px; src = "Screenshots/1.jpg">
-<img align = "left" width = 360px; height = 720px; src = "Screenshots/2.jpg">
-<img align = "left" width = 360px; height = 720px; src = "Screenshots/3.jpg">
-<img align = "left" width = 360px; height = 720px; src = "Screenshots/4.jpg">
-<img align = "left" width = 360px; height = 720px; src = "Screenshots/5.jpg">
-<br />
-
+<img alt = "Screenshot-1" align = "left" width = 360px; height = 720px; src = "Screenshots/1.jpg">
+<img alt = "Screenshot-1" align = "left" width = 360px; height = 720px; src = "Screenshots/2.jpg">
+<img alt = "Screenshot-1" align = "left" width = 360px; height = 720px; src = "Screenshots/3.jpg">
+<img alt = "Screenshot-1" align = "left" width = 360px; height = 720px; src = "Screenshots/4.jpg">
+<img alt = "Screenshot-1" align = "left" width = 360px; height = 720px; src = "Screenshots/5.jpg">
 
 ## I'm a Student!
 
