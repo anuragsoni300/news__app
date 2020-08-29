@@ -37,7 +37,7 @@ ________________________________
 <br />
 <details>
   <summary>:zap: Github Stats</summary>
-  <img align="left" alt="Anurag Soni's Github Stats" src="https://github-readme-stats.codestackr.vercel.app/api?username=sonianurag300&show_icons=true&hide_border=true" />
+  <img align="left" alt="Anurag Soni's Github Stats" src="https://github-readme-stats.codestackr.vercel.app/api?username=anuragsoni300&show_icons=true&hide_border=true" />
 </details>
 <br />
 
